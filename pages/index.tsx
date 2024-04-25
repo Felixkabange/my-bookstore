@@ -16,7 +16,7 @@ const Home: React.FC = () => {
     // Fetch books from a local state, context, or an API when the component mounts
     const initialBooks = [
       { id: 1, title: 'Book One', author: 'Author One', price: 9.99 },
-      // Fetch more books...
+      // Fetch more books as needed
     ];
     setBooks(initialBooks);
   }, []);
@@ -24,7 +24,7 @@ const Home: React.FC = () => {
   return (
     <>
       <Head>
-      <title>Bookstore - Home</title>
+        <title>Bookstore - Home</title>
         <meta name="description" content="Explore our collection of books." />
         <meta property="og:title" content="Bookstore - Home" />
         <meta property="og:description" content="Explore our collection of books." />
@@ -35,26 +35,28 @@ const Home: React.FC = () => {
       <div className="p-6">
         <h1 className="text-2xl font-bold mb-4">Book List</h1>
         {books.length > 0 ? (
-          <div>
+          <div className="grid md:grid-cols-3 gap-4">
             {books.map(book => (
-              <div key={book.id}>
-                <h2>{book.title}</h2>
-                <p>Author: {book.author}</p>
-                <p>Price: ${book.price.toFixed(2)}</p>
+              <div key={book.id} className="p-4 border rounded-lg shadow">
+                <h2 className="text-xl font-semibold">{book.title}</h2>
+                <p className="text-gray-600">Author: {book.author}</p>
+                <p className="text-gray-800">Price: ${book.price.toFixed(2)}</p>
+                <Link href={`/books/${book.id}`} legacyBehavior>
+                  <a className="mt-2 inline-block text-blue-500 hover:text-blue-700">View Details</a>
+                </Link>
               </div>
             ))}
           </div>
         ) : (
           <p>No books to display</p>
         )}
-        <div>
         <Link href="/add" legacyBehavior>
-          <a className="text-blue-500">Add a New Book</a>
+          <a className="mt-4 text-blue-500 hover:text-blue-700">Add a New Book</a>
         </Link>
-        </div>
       </div>
     </>
   );
 };
 
 export default Home;
+
