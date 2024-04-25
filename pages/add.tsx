@@ -15,7 +15,7 @@ const AddBook: React.FC = () => {
   return (
     <>
       <Head>
-      <title>Add Book - Bookstore</title>
+        <title>Add Book - Bookstore</title>
         <meta name="description" content="Add a new book to the bookstore collection." />
         <meta property="og:title" content="Add Book - Bookstore" />
         <meta property="og:description" content="Add a new book to the bookstore collection." />
@@ -23,11 +23,13 @@ const AddBook: React.FC = () => {
         <meta property="og:type" content="article" />
         <link rel="canonical" href="http://mydomain.com/add" />
       </Head>
-      <div className="p-6">
-        <h1 className="text-2xl font-bold mb-4">Add a New Book</h1>
+      <div className="p-6 md:p-10">
+        <h1 className="text-3xl font-bold mb-6">Add a New Book</h1>
         <BookForm addBook={addBook} />
-        <div>
-          <Link href="/">Back to Book List</Link>
+        <div className="mt-4">
+          <Link href="/">
+            <a className="text-blue-500 hover:text-blue-700">Back to Book List</a>
+          </Link>
         </div>
       </div>
     </>
@@ -35,6 +37,7 @@ const AddBook: React.FC = () => {
 };
 
 export default AddBook;
+
 
 
 
